@@ -41,13 +41,13 @@ jobs:
       - name: Install MyST + Jupyter Book
         run: npm install -g mystmd jupyter-book
 
-      - name: Build book site
-        run: jupyter-book build .
+      - name: Build HTML
+        run: myst build --html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_build/site
+          path: ./_build/html
 
       - name: Deploy to GitHub Pages
         id: deployment
