@@ -2,14 +2,12 @@
 version: 1
 project:
   id: eee38070-f745-43c0-b208-5d091d500667
-  # title:
-  # description:
-  # keywords: []
-  # authors: []
-  # github:
-  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  title: Econ 204
+  toc:
+    - file: intro.md
+    - file: hp1.ipynb
+    - file: dynamic_programming_lecture_egm_stochastic.ipynb
+
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+
