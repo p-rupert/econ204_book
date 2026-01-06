@@ -1,5 +1,0 @@
-format: jb-book
-root: intro
-chapters:
-  - file: hp1
-  - file: dynamic_programming_lecture_egm_stochastic
