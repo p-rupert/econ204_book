@@ -5,7 +5,7 @@ format: revealjs
 
 ## Capital and labor share
 
-- From equation \eqref{eq:1storder}
+- From first order equation
 
 $$
 \begin{aligned}
