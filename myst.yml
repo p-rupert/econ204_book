@@ -7,6 +7,7 @@ project:
     - file: intro.md
     - file: hp1.ipynb
     - file: dynamic_programming_lecture_egm_stochastic.ipynb
+    - file: solow_slides
 
 site:
   template: book-theme
