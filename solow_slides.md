@@ -1,5 +1,5 @@
 ---
-title: Solow Model: Model and Measurement
+title: "Solow Model: Model and Measurement"
 format: revealjs
 ---
 
