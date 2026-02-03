@@ -2,3 +2,4 @@ _build/
 .ipynb_checkpoints/
 anaconda_projects/
 .DS_Store
+.virtual_documents/
