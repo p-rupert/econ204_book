@@ -35,6 +35,7 @@ jobs:
         shell: bash -l {0}
         env:
           BASE_URL: /
+          MYST_SITE_URL: https://econ204.peterrupert.com
         run: |
           myst build --html
 
