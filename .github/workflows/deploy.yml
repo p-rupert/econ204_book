@@ -5,29 +5,27 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  BASE_URL: ''
-  MYST_SITE_URL: 'https://econ204.peterrupert.com'
-  SITE_URL: 'https://econ204.peterrupert.com'
-
 permissions:
   contents: read
   pages: write
   id-token: write
 
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
     environment:
       name: github-pages
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
 
@@ -35,7 +33,20 @@ jobs:
         run: npm install -g mystmd
 
       - name: Build static HTML
+        env:
+          BASE_URL: ''
+          MYST_SITE_URL: 'https://econ204.peterrupert.com'
+          SITE_URL: 'https://econ204.peterrupert.com'
         run: myst build --html
+
+      - name: Fix robots.txt and sitemap URLs
+        run: |
+          if [ -f _build/html/robots.txt ]; then
+            sed -i 's#http://localhost:[0-9]*/#https://econ204.peterrupert.com/#g' _build/html/robots.txt || true
+          fi
+          if [ -f _build/html/sitemap.xml ]; then
+            sed -i 's#http://localhost:[0-9]*/#https://econ204.peterrupert.com/#g' _build/html/sitemap.xml || true
+          fi
 
       - name: Add CNAME
         run: echo "econ204.peterrupert.com" > _build/html/CNAME
@@ -47,6 +58,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-
-
-
