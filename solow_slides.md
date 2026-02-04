@@ -1,7 +1,8 @@
 ---
-title: "Solow Model: Model and Measurement"
+title: "Solow: Model and Measurement"
 format: revealjs
 ---
+
 
 ## Capital and labor share
 
